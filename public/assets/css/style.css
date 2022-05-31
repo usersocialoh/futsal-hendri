@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid #c9c9c9;
+  transition:1s;
+}
+.card:hover {
+  cursor: pointer;
+  transition:1s;
+  box-shadow: 1px 1px 10px black;
+}
+
+a {
+; /* blue colors for links too */
+  text-decoration: none!important; /* no underline */
+}
+
+.remove-btn {
+  cursor: pointer;
+}

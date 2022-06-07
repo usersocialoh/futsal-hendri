@@ -88,6 +88,8 @@ $routes->post('/create-team', 'Member::attemptCreateTeam');
 $routes->get('/join-team/(:any)', 'Member::joinTeam/$1');
 $routes->post('/exit-team/', 'Member::exitTeam');
 $routes->post('/upload-receipt', 'Member::uploadReceipt');
+
+$routes->get('/available-fields', 'AvailableFields::downloadPdf');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -2,6 +2,9 @@
 <?= $this->section('content'); ?>
 <div class="container-fluid">
     <h3 class="mt-5 mb-4 text-center"><?= $title ?></h3>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        See all available fields
+    </button>
     <div class="mb-4">
         <div class="row justify-content-center">
             <div class="form-group col-12">
@@ -66,8 +69,37 @@
     </div>
 </div>
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Download Available Fields By Province</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="prov">Select province</label>
+            <select class="form-control" id="prov" name="prov" required>
+                <option selected disabled value="">...</option>
+            </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="getValue()">Download PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
+
+    function getValue() {
+        console.log($('#prov').val());
+    }
+
     function removeFilter() {
         $('#search-field').val('');
         reset('province');
@@ -115,6 +147,7 @@
                 element += `<option value="${capital(data.name)}__${data.id}">${capital(data.name)}</option>`;
             });
             $('#province').html(element);
+            $('#prov').html(element);
             liveSearch();
         });
     }
